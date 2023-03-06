@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  </head>
+  <body style="background-color: yellow;" class="text-center " id="container">
+    <div >
+
+        <button style="width: 10rem;" id="btn-red" class="btn btn-danger mt-5 
+     fw-semibold">Make bg red</button>
+
+     <button id="showActive" style="width: 10rem;" class="btn btn-primary mt-5 border border-info" >Not Active</button>
+    </div>
+
+
+
+
+    <script>
+        //show active or not
+
+        document.getElementById('showActive').addEventListener('click',function(){
+            const showActivityBtn = document.getElementById('showActive')
+            if(showActivityBtn.classList.contains('active')){
+                showActivityBtn.classList.remove('active','border-2','border-info')
+                showActivityBtn.textContent="Not active"
+            }else{
+                showActivityBtn.classList.add('active','border-2','border-info')
+                showActivityBtn.textContent="Active"
+            }
+        })
+
+        //toggle btn
+        document.getElementById('btn-red').addEventListener('click',function(){
+            const container = document.getElementById('container')
+            const toggleBtn = document.getElementById('btn-red');
+
+            console.log(container.style.backgroundColor);
+            if(container.style.backgroundColor =='yellow'){
+                container.style.backgroundColor = 'red'
+                toggleBtn.textContent='Make bg yellow'
+                toggleBtn.classList.add('bg-warning')
+                toggleBtn.classList.remove('bg-danger')
+            }else{
+                container.style.backgroundColor = 'yellow'
+                toggleBtn.textContent="Make bg red"
+                toggleBtn.classList.add('bg-danger')
+                toggleBtn.classList.remove('bg-warning')
+            }
+        })
+
+    </script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+  </body>
+</html>
